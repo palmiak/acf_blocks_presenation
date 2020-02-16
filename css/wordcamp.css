@@ -259,3 +259,6 @@
 .colorbg .text ul li::before {
 	border: 3px solid var(--white-color)!important;
 }
+
+.line { display: block; }
+.line.focus { border: 2px red solid; background: #000;}

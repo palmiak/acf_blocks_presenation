@@ -207,7 +207,7 @@ npm start
                             <div class="text">
                                 <p>Only two steps to go:</p>
                                 <ul>
-                                    <li>learn Reacta</li>
+                                    <li>learn React</li>
                                     <li>use aquired skills and create a block</li>
                                 </ul>
                             </div>
@@ -230,8 +230,8 @@ npm start
                             <div class="text">
                                 <h2>YES:</h2>
                                 <ul>
-                                    <li>Thats the only way to use Gutenberg's full potencial</li>
-                                    <li>We won't be dependant on some 3rd party plugins</li>
+                                    <li>That's the only way to use Gutenberg's full potencial</li>
+                                    <li>We won't be dependant on some 3rd party plugins or libraries</li>
                                 </ul>
                             </div>
                         </div>
@@ -245,7 +245,7 @@ npm start
                             <div class="text">
                                 <h2>NO:</h2>
                                 <ul>
-                                    <li>Most blocks we'll create are quite simple - it's passing some data and showing it.</li>
+                                    <li>Most blocks we'll create are quite simple - it's passing some data and showing it</li>
                                 </ul>
                             </div>
                         </div>
@@ -276,7 +276,7 @@ npm start
                                 <ul>
                                     <li>it works exactly as normal ACF - but within a block</li>
                                     <li>we have a real time preview of each block in admin panel</li>
-                                    <li>it really makes clients happy</li>
+                                    <li>it really makes your clients happy</li>
                                 </ul>
                             </div>
                         </div>
@@ -292,6 +292,7 @@ npm start
                                     <li>ACF Blocks is quite limited in terms of interface possibilities</li>
                                     <li>Some advanced Gutenberg functions are missing - nested blocks for example</li>
                                     <li>Gutenberg is changing quite fast and ACF Block will always be a step behind</li>
+                                    <li>ACF Blocks is only included in the PRO version</li>
                                 </ul>
 
                             </div>
@@ -322,17 +323,26 @@ npm start
 function my_acf_init() {
     if( function_exists('acf_register_block_type') ) {
         acf_register_block_type([
-            'name'  => 'trips', // Block Name
-            'title' => __('Trips'), // Title
-            'description' => __('Promoted trips'), // Block Description
-            'render_callback' => 'my_acf_block_render_callback', // Rendering function name
-            'category' => 'layout', // Category
-            'icon' => 'location-alt', // Icon
-            'keywords' => [ 'trips', 'flights' ], // Keywords
+            'name'  => 'trips',
+            'title' => __('Trips'),
+            'description' => __('Promoted trips'),
+            'render_callback' => 'my_acf_block_render_callback',
+            'category' => 'layout',
+            'icon' => 'location-alt',
+            'keywords' => [ 'trips', 'flights' ],
         ]);
     }
 }</code>
                                 </pre>
+                                <p class="fragment" data-code-focus="1"></p>
+                                <p class="fragment" data-code-focus="5"></p>
+                                <p class="fragment" data-code-focus="6"></p>
+                                <p class="fragment" data-code-focus="7"></p>
+                                <p class="fragment" data-code-focus="8"></p>
+                                <p class="fragment" data-code-focus="9"></p>
+                                <p class="fragment" data-code-focus="10"></p>
+                                <p class="fragment" data-code-focus="11"></p>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -357,16 +367,19 @@ function my_acf_init() {
                                 <pre>
                                     <code code="php">function my_acf_block_render_callback( $block, $content='', $is_preview ) {
     $context = Timber::get_context();
-    // All the block informations like id, name etc
     $context['block'] = $block;
-    // All the fields used
     $context['fields'] = get_fields(); 
-    // Check is it rendering in admin panel or on front
     $context['is_preview'] = $is_preview;
     
     Timber::render( 'views/blocks/trip-block.twig', $context );
 }</code>
                                 </pre>
+                                <p class="fragment" data-code-focus="2"></p>
+                                <p class="fragment" data-code-focus="3"></p>
+                                <p class="fragment" data-code-focus="4"></p>
+                                <p class="fragment" data-code-focus="5"></p>
+                                <p class="fragment" data-code-focus="7"></p>
+                                
                             </div>
                         </div>
                     </div>
@@ -427,6 +440,9 @@ function my_acf_init() {
 }
 add_action( 'enqueue_block_editor_assets', 'my_acf_block_editor_style' );</code>
                             </pre>
+                            <p class="fragment" data-code-focus="2"></p>
+                            <p class="fragment" data-code-focus="6"></p>
+                            <p class="fragment" data-code-focus="11"></p>
                             </div>
                         </div>
                     </div>
@@ -438,17 +454,18 @@ add_action( 'enqueue_block_editor_assets', 'my_acf_block_editor_style' );</code>
                             <div class="text">
                             <pre>
                                 <code code="php">acf_register_block_type([
-    'name'  => 'trips', // Block Name
-    'title' => __('Trips'), // Title
-    'description' => __('Promoted trips'), // Block Description
-    'render_callback' => 'my_acf_block_render_callback', // Rendering function name
-    'category' => 'layout', // Category
-    'icon' => 'location-alt', // Icon
-    'keywords' => [ 'trips', 'flights' ], // Keywords
+    'name'  => 'trips',
+    'title' => __('Trips'),
+    'description' => __('Promoted trips'),
+    'render_callback' => 'my_acf_block_render_callback',
+    'category' => 'layout',
+    'icon' => 'location-alt',
+    'keywords' => [ 'trips', 'flights' ],
     'enqueue_style' => get_template_directory_uri() .'/dist/css/editor.css',
     'enqueue_script' => get_template_directory_uri() .'/dist/js/editor.js',
 ]);</code>
                             </pre>
+                            <p class="fragment" data-code-focus="9-10"></p>
                             </div>
                         </div>
                     </div>
@@ -460,9 +477,9 @@ add_action( 'enqueue_block_editor_assets', 'my_acf_block_editor_style' );</code>
                             <h1 class="title header-color">Some things that are worth to rembember</h1>
                             <div class="text">
                                 <ul>
-                                    <li>it's not TinyMCE - the editor is not a iframe</li>
+                                    <li>it's not TinyMCE - the editor is not an iframe</li>
                                     <li>be really carefull about styling global elements like body, html etc</li>
-                                    <li>it's a good practice to make all the url non clickable</li>
+                                    <li>it's a good practice to make all the url non-clickable</li>
                                 </ul>
                             </div>
                         </div>
@@ -529,6 +546,7 @@ add_action( 'enqueue_block_editor_assets', 'my_acf_block_editor_style' );</code>
     }
 });</code>
                                 </pre>
+                                <p class="fragment" data-code-focus="1"></p>
                             </div>
                         </div>
                     </div>
@@ -549,7 +567,7 @@ add_action( 'enqueue_block_editor_assets', 'my_acf_block_editor_style' );</code>
                         <div class="inner-full">
                             <h1 class="title header-color">It's alive :)</h1>
                             <div class="text">
-                                <center><img src="img/Screen Recording 2019-05-15 at 11.22.21.79 PM.gif" /></center>
+                                <center><img src="img/Screen+Recording+2020-02-16+at+12.53.44.59+AM.gif" /></center>
                             </div>
                         </div>
                     </div>
@@ -619,8 +637,11 @@ add_action( 'enqueue_block_editor_assets', 'my_acf_block_editor_style' );</code>
     <p>{{ fields.testimonial }}</p>
     <cite>
     <span>{{ fields.author }}</span>
-    </cite></blockquote></code>
+    </cite>
+</blockquote></code>
 </pre>
+<p class="fragment" data-code-focus="1-8"></p>
+<p class="fragment" data-code-focus="9-14"></p>
                         </div>
                         </div>
                     </div>
@@ -632,7 +653,7 @@ add_action( 'enqueue_block_editor_assets', 'my_acf_block_editor_style' );</code>
                         <h1 class="title header-color">Introducting Timber ACF WP Blocks</h1>
                         <div class="text">
                         <p>
-                            You can read more on <strong>Timber ACF WP Blocks</strong> on <a href="https://github.com/palmiak/timber-acf-wp-blocks">https://github.com/palmiak/timber-acf-wp-blocks</a>
+                            You can read more about <strong>Timber ACF WP Blocks</strong> on <a href="https://github.com/palmiak/timber-acf-wp-blocks">https://github.com/palmiak/timber-acf-wp-blocks</a>
                         </p>
                         <p>
                             If you don't use Timber try <a href="https://github.com/MWDelaney/sage-acf-wp-blocks">https://github.com/MWDelaney/sage-acf-wp-blocks</a> or <a href="https://github.com/micropackage/block-loader">https://github.com/micropackage/block-loader</a>
@@ -672,7 +693,14 @@ add_action( 'enqueue_block_editor_assets', 'my_acf_block_editor_style' );</code>
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/search/search.js', async: true },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
+					{ src: 'plugin/notes/notes.js', async: true },
+                    {
+                        src: 'node_modules/reveal-code-focus/reveal-code-focus.js',
+                        async: true,
+                        callback: function() {
+                            RevealCodeFocus();
+                        }
+                     }
 				]
 			});
 
