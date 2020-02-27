@@ -94,8 +94,8 @@
 								</p>
 								
 								<p>
-									<small>WordPress Developer</small>
-									OsomStudio
+									<small>I work at</small>
+									WPMU DEV
 								</p>
 							</div>
 						</div>
@@ -208,7 +208,7 @@ npm start
                                 <p>Only two steps to go:</p>
                                 <ul>
                                     <li>learn React</li>
-                                    <li>use aquired skills and create a block</li>
+                                    <li>use newly acquired skills and create a block</li>
                                 </ul>
                             </div>
                         </div>
@@ -289,8 +289,8 @@ npm start
                             <h1 class="title header-color">Cons</h1>
                             <div class="text">
                                 <ul>
-                                    <li>ACF Blocks is quite limited in terms of interface possibilities</li>
-                                    <li>Some advanced Gutenberg functions are missing - nested blocks for example</li>
+                                    <li>ACF Blocks is quite limited in terms of user interface</li>
+                                    <li>Some advanced Gutenberg functions are missing</li>
                                     <li>Gutenberg is changing quite fast and ACF Block will always be a step behind</li>
                                     <li>ACF Blocks is only included in the PRO version</li>
                                 </ul>
@@ -412,7 +412,7 @@ function my_acf_init() {
                         <div class="inner-full">
                             <h1 class="title header-color">It works :)</h1>
                             <div class="text">
-                                <p>But we can some stuff missing:</p>
+                                <p>But some stuff is missing:</p>
                                 <ul>
                                     <li>Block looks different comparing to the frontend version</li>
                                     <li>JavaScript doesn't work - Packery in this case</li>
@@ -478,7 +478,7 @@ add_action( 'enqueue_block_editor_assets', 'my_acf_block_editor_style' );</code>
                             <div class="text">
                                 <ul>
                                     <li>it's not TinyMCE - the editor is not an iframe</li>
-                                    <li>be really carefull about styling global elements like body, html etc</li>
+                                    <li>be really careful about styling global elements like body, html etc</li>
                                     <li>it's a good practice to make all the url non-clickable</li>
                                 </ul>
                             </div>
@@ -493,7 +493,7 @@ add_action( 'enqueue_block_editor_assets', 'my_acf_block_editor_style' );</code>
                             <div class="text">
                                 <ul>
                                     <li>wrap your block with a div with some class name</li>
-                                    <li>it's a good idea to create a separate style just for the admin panel, but it should use the styles used on frontend</li>
+                                    <li>create a separate style just for the admin panel, but include the styles used on frontend</li>
                                 </ul>
                                 <pre>
                                         <code code="scss">.gutenberg-sasquatch-block {
@@ -514,11 +514,11 @@ add_action( 'enqueue_block_editor_assets', 'my_acf_block_editor_style' );</code>
                 <section>
                     <div class="inner">
                         <div class="inner-full">
-                            <h1 class="title header-color">Adding Javascripts</h1>
+                            <h1 class="title header-color">Adding JavaScript</h1>
                             <div class="text">
                                 <p>It doesn't work because:</p>
                                 <ul>
-                                    <li>our scripts aren't connected to any event that would trigger them on showing the block preview</li>
+                                    <li>our scripts don't launch on block preview</li>
                                 </ul>
                             </div>
                         </div>
@@ -528,7 +528,7 @@ add_action( 'enqueue_block_editor_assets', 'my_acf_block_editor_style' );</code>
                 <section>
                     <div class="inner">
                         <div class="inner-full">
-                            <h1 class="title header-color">Adding Javascripts</h1>
+                            <h1 class="title header-color">Adding JavaScript</h1>
                             <div class="text">
                                 <pre>
                                     <code code="javascript">window.acf.addAction('render_block_preview', function( $el, attributes ){
@@ -599,7 +599,7 @@ add_action( 'enqueue_block_editor_assets', 'my_acf_block_editor_style' );</code>
                             <h1 class="title header-color">What if...</h1>
                             <div class="text">
                                 <ul>
-                                    <li>we could only focus on block creation - without writing those boring acf/init function</li>
+                                    <li>we could only focus on block creation - without writing those boring PHP functions</li>
                                 </ul>
                             </div>
                         </div>
