@@ -86,6 +86,7 @@
                                     <li>a block editor that replaced TinyMCE</li>
                                     <li>it changes the way we create administration panel blocks (ReactJS)</li>
                                     <li>it gives us more flexability</li>
+                                    <li>it standarises the way content is created</li>
                                 </ul>
                             </div>
                         </div>
@@ -252,7 +253,7 @@ npm start
                             <div class="text">
                                 <ul>
                                     <li>ACF Blocks is quite limited in terms of user interface</li>
-                                    <li>some advanced Gutenberg functions are missing</li>
+                                    <li>some Gutenberg features are missing</li>
                                     <li>Gutenberg is changing quite fast and ACF Blocks will always be a step behind</li>
                                     <li>ACF Blocks is only included in the PRO version</li>
                                 </ul>
@@ -327,21 +328,23 @@ function my_acf_init() {
                             <h1 class="title header-color">Let's create a block</h1>
                             <div class="text">
                                 <pre>
-                                    <code code="php">function my_acf_block_render_callback( $block, $content='', $is_preview ) {
-    $context = Timber::get_context();
-    $context['block'] = $block;
-    $context['fields'] = get_fields(); 
-    $context['is_preview'] = $is_preview;
-    
-    Timber::render( 'views/blocks/trip-block.twig', $context );
-}</code>
+                                    <code code="php"><div class="offer-data">
+    <div class="about">
+        <div class="title">
+            <div class="inner">
+                <h3 class="m-b-0"><a href="&lt;?php the_field( 'url' ); ?&gt;">&lt;?php the_field( 'name' ); ?&gt;</a></h3>
+                &lt;?php the_field( 'description' ); ?&gt;
+            </div>
+        </div>
+        <div class="price">
+            <div class="inner">
+                <span class="smaller">FROM</span> &lt;?php the_field( 'price' ); ?&gt; EUR
+            </div>
+        </div>
+    </div>
+</div>
+</code>
                                 </pre>
-                                <p class="fragment" data-code-focus="2"></p>
-                                <p class="fragment" data-code-focus="3"></p>
-                                <p class="fragment" data-code-focus="4"></p>
-                                <p class="fragment" data-code-focus="5"></p>
-                                <p class="fragment" data-code-focus="7"></p>
-                                
                             </div>
                         </div>
                     </div>
@@ -442,6 +445,7 @@ add_action( 'enqueue_block_editor_assets', 'my_acf_block_editor_style' );</code>
                                     <li>it's not TinyMCE - the editor is not an iframe</li>
                                     <li>be really careful about styling global elements like body, html etc</li>
                                     <li>it's a good practice to make all the url non-clickable</li>
+                                    <li>if the block is using some API - mock or cache data</li>
                                 </ul>
                             </div>
                         </div>
